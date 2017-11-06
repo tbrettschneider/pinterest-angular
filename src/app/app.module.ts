@@ -4,6 +4,9 @@ import { HttpModule }    from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { PinterestService } from './pinterest.service';
+import { PinService } from './pin.service';
+import { WebsocketService } from './websocket.service';
+
 
 @NgModule({
   declarations: [
@@ -13,7 +16,7 @@ import { PinterestService } from './pinterest.service';
     HttpModule,
     BrowserModule
   ],
-  providers: [PinterestService],
+  providers: [PinterestService, WebsocketService, PinService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PinterestService } from './pinterest.service';
 import { Pin } from './pin';
+import { PinService } from './pin.service';
+
 
 @Component({
   selector: 'app-root',
@@ -11,12 +13,21 @@ export class AppComponent implements OnInit {
 
   private pins: Pin[];
 
-  constructor(private pinterestService:PinterestService) {
+  pinService: PinService;
+  pinterestService: PinterestService;
+
+  constructor(pinterestService:PinterestService, pinService:PinService) {
+    this.pinService = pinService;
+    this.pinterestService = pinterestService;
   }
 
   ngOnInit() {
     //when component loading get all pins and set the pin[]
     this.getAllPins();
+
+    this.pinService.messages.subscribe(msg => {			
+      console.log("Response from websocket: " + msg);
+		});
   }
 
   getAllPins() {
