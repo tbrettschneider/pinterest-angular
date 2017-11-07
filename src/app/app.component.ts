@@ -1,33 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { PinterestService } from './pinterest.service';
 import { Pin } from './pin';
-import { PinService } from './pin.service';
+import { PinPushService } from './pin.push.service';
+import { Message } from '@stomp/stompjs';
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  providers: [PinterestService]
+  providers: [PinterestService, PinPushService]
 })
 export class AppComponent implements OnInit {
 
   private pins: Pin[];
 
-  pinService: PinService;
   pinterestService: PinterestService;
+  pinPushService: PinPushService;
 
-  constructor(pinterestService:PinterestService, pinService:PinService) {
-    this.pinService = pinService;
+  constructor(pinterestService:PinterestService, pinPushService:PinPushService) {
     this.pinterestService = pinterestService;
+    this.pinPushService = pinPushService;
   }
 
   ngOnInit() {
     //when component loading get all pins and set the pin[]
     this.getAllPins();
-
-    this.pinService.messages.subscribe(msg => {			
-      console.log("Response from websocket: " + msg);
-		});
+    this.pinPushService.subscribe('/topic/pins', (message: Message) => {
+      console.log(message);
+    });
   }
 
   getAllPins() {
