@@ -15,7 +15,6 @@ export class PinPushService implements OnDestroy {
   // Subscription status
   public subscribed: boolean;
 
-  /** Constructor */
   constructor(private _stompService: StompService) {
     this.subscribed = false;
     // Store local reference to Observable

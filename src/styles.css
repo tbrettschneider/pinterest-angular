@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+.gal {
+    -ms-column-count: 3; 
+    -webkit-column-count: 3; /* Chrome, Safari, Opera */
+    -moz-column-count: 3; /* Firefox */
+    column-count: 3;
+}	
+
+.gal img {
+    width: 100%;
+    padding: 7px 0;
+}
+
+@media (max-width: 500px) {
+    .gal {
+        -ms-column-count: 1; 
+        -webkit-column-count: 1; /* Chrome, Safari, Opera */
+        -moz-column-count: 1; /* Firefox */
+        column-count: 1;
+    }
+}
+
+img {
+    opacity: 1;
+}
+
+img:hover {
+    opacity: 0.6;
+    transition: 0.5s;
+}

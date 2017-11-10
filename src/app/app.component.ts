@@ -14,15 +14,10 @@ export class AppComponent implements OnInit {
 
   private pins: Pin[];
 
-  pinterestService: PinterestService;
-  pinPushService: PinPushService;
-  changeDetector: ChangeDetectorRef;
-
-  constructor(pinterestService:PinterestService, pinPushService:PinPushService, changeDetector:ChangeDetectorRef) {
-    this.pinterestService = pinterestService;
-    this.pinPushService = pinPushService;
-    this.changeDetector = changeDetector
-  }
+  constructor(
+    private pinterestService:PinterestService,
+    private pinPushService:PinPushService,
+    private changeDetector:ChangeDetectorRef) {}
 
   ngOnInit() {
     //when component loading get all pins and set the pin[]
