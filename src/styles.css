@@ -3,10 +3,10 @@
 /* pinboard / gallery */
 
 .gal {
-    -ms-column-count: 4; 
-    -webkit-column-count: 4; /* Chrome, Safari, Opera */
-    -moz-column-count: 4; /* Firefox */
-    column-count: 4;
+    -ms-column-count: 5;
+    -webkit-column-count: 5; /* Chrome, Safari, Opera */
+    -moz-column-count: 5; /* Firefox */
+    column-count: 5;
     column-gap: 1em;
     max-width: 1300px;
     margin: 0 auto;    
@@ -34,13 +34,10 @@
 .gal .img img {
     width: 100%;
     margin: 7px 0;
+    opacity: 1;    
 }
 
-img {
-    opacity: 1;
-}
-
-img:hover {
+.gal .img img:hover {
     opacity: 0.6;
     transition: 0.5s;
 }
@@ -60,7 +57,7 @@ img:hover {
 /* image modal */
 
 .modal-content {
-    width: 640px !important;
+    /*width: 640px !important;*/
 }
 
 .modal-body img {
@@ -68,6 +65,10 @@ img:hover {
 }
 
 .selectedPin { 
-	width:640px;
+	/*width:640px;*/
     position:relative 
+}
+
+.modal-backdrop {
+    opacity:.75 !important;
 }
