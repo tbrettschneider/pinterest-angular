@@ -49,6 +49,7 @@ export class AppComponent implements OnInit {
   listenForFreshPins() {
     this.pinPushService.subscribe('/topic/pins', (message: Message) => {
       let json = JSON.parse(message.body);
+      console.log(json);
       this.pins.push(new Pin(json.id, json.url, json.description));
       this.changeDetector.detectChanges();
     });
