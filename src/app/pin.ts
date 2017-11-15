@@ -1,4 +1,4 @@
 export class Pin {
 
-    constructor(private id: Number, private url: String, private description?: String) {}    
+    constructor(public id?: Number, public url?: String, public description?: String) {}    
 }

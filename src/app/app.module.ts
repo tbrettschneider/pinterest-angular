@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule }    from '@angular/http';
+import { FormsModule } from '@angular/forms'; 
 
 import { AppComponent } from './app.component';
+import { AddPinComponent } from './addpin-modal/addpin.component';
 import { PinterestService } from './pinterest.service';
 import { StompConfig, StompService } from '@stomp/ng2-stompjs';
 import { PinPushService } from './pin.push.service';
@@ -26,16 +28,17 @@ const stompConfig: StompConfig = {
   reconnect_delay: 5000,
 
   // Will log diagnostics on console
-  debug: true
+  debug: false
 };
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent, AddPinComponent
   ],
   imports: [
     HttpModule,
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [PinterestService, StompService, PinPushService, {
     provide: StompConfig,

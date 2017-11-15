@@ -8,7 +8,7 @@ import { Input } from '@angular/core/src/metadata/directives';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.bootstrap.html',
+  templateUrl: './app.component.html',
   providers: [PinterestService, PinPushService]
 })
 export class AppComponent implements OnInit {
@@ -53,5 +53,9 @@ export class AppComponent implements OnInit {
       this.pins.push(new Pin(json.id, json.url, json.description));
       this.changeDetector.detectChanges();
     });
+  }
+
+  savePin() {
+    console.log("Pin saved.");
   }
 }
